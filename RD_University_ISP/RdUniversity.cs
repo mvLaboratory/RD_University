@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using RD_University_ISP.Interfaces;
 using RD_University_ISP.Models;
 
@@ -6,34 +7,29 @@ namespace RD_University_ISP
 {
   public class RdUniversity : IRdUniversity
   {
-    public RdUniversity(IDateProvider<Student> studentsDataProvider, IInputReader consoleReaderWriter, IOutputWriter printerWriter)
+    public RdUniversity(IDateProvider<Student> studentsDataProvider, IInputReader consoleReader, IOutputWriterFactory outputWriterFactory)
     {
       _studentsDataProvider = studentsDataProvider;
-      _consoleReaderWriter = consoleReaderWriter;
-      _printerWriter = printerWriter;
+      _consoleReader = consoleReader;
+      _outputWriterFactory = outputWriterFactory;
     }
 
     public int Execute()
     {
       var students = _studentsDataProvider.GetData();
-      var input = _consoleReaderWriter.Read();
+      var input = _consoleReader.Read();
 
-      switch (input)
+      if (input.Equals("x", StringComparison.InvariantCultureIgnoreCase))
       {
-        case "s":
-          students.ToList().ForEach(_consoleReaderWriter.Write);
-          break;
-        case "p":
-          students.ToList().ForEach(_printerWriter.Write);
-          break;
-        case "x":
-          return 0;
+        return 0;
       }
+      var writer = _outputWriterFactory.GetWriter(input);
+      students.ToList().ForEach(writer.Write);
       return 1;
     }
 
     private readonly IDateProvider<Student> _studentsDataProvider;
-    private readonly IInputReader _consoleReaderWriter;
-    private readonly IOutputWriter _printerWriter;
+    private readonly IInputReader _consoleReader;
+    private readonly IOutputWriterFactory _outputWriterFactory;
   }
 }
