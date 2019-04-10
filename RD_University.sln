@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RD_University_DI", "RD_Univ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RD_University_ISP", "RD_University_ISP\RD_University_ISP.csproj", "{48B2A6D1-F7E1-43D0-9AAD-278FE2FD9FF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RD_University_OCP", "RD_University_OCP\RD_University_OCP.csproj", "{58554D5C-5042-4B2D-AF33-52AC78A97F46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{48B2A6D1-F7E1-43D0-9AAD-278FE2FD9FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48B2A6D1-F7E1-43D0-9AAD-278FE2FD9FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48B2A6D1-F7E1-43D0-9AAD-278FE2FD9FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58554D5C-5042-4B2D-AF33-52AC78A97F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58554D5C-5042-4B2D-AF33-52AC78A97F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58554D5C-5042-4B2D-AF33-52AC78A97F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58554D5C-5042-4B2D-AF33-52AC78A97F46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
