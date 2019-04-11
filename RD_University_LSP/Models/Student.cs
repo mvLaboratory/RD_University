@@ -16,7 +16,7 @@ namespace RD_University_LSP.Models
     public DateTime BirthDate { get; set; }
     public int AverageGrade { get; set; }
     public Specialty Specialty { get; set; }
-    public List<Course> FinishedCourses { get; set; }
+    public List<Course> FinishedCourses { get; set; } 
 
     public override string ToString()
     {
