@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using RD_University_ISP.Interfaces;
-
-namespace RD_University_ISP.Utils.Extensions
+﻿namespace RD_University_OCP.Utils.Extensions
 {
   public static class EnumerableExtensions
   {

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace RD_University_ISP.Models
+namespace RD_University_OCP.Models
 {
   public class Student
   {
@@ -13,6 +14,9 @@ namespace RD_University_ISP.Models
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public DateTime BirthDate { get; set; }
+    public int AverageGrade { get; set; }
+    public Specialty Specialty { get; set; }
+    public List<Course> FinishedCourses { get; set; }
 
     public override string ToString()
     {

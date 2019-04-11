@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
-using RD_University_ISP.Interfaces;
-using RD_University_ISP.Models;
+using RD_University_OCP.Core.Promotion;
+using RD_University_OCP.Interfaces;
+using RD_University_OCP.Models;
 
 namespace RD_University_OCP
 {
@@ -24,7 +25,11 @@ namespace RD_University_OCP
         return 0;
       }
       var writer = _outputWriterFactory.GetWriter(input);
-      students.ToList().ForEach(writer.Write);
+
+      var promotionAssignator = new PromotionAssignator(new PromotionStrategyFactory());
+      var studentsForPromotion = promotionAssignator.SelectStudentsForPromotion(students);
+
+      studentsForPromotion.ToList().ForEach(writer.Write);
       return 1;
     }
 

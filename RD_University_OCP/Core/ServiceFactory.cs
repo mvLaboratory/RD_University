@@ -1,7 +1,6 @@
-﻿using RD_University_ISP.Core;
-using RD_University_ISP.Data;
-using RD_University_ISP.Interfaces;
-using RD_University_ISP.Models;
+﻿using RD_University_OCP.Data;
+using RD_University_OCP.Interfaces;
+using RD_University_OCP.Models;
 
 namespace RD_University_OCP.Core
 {

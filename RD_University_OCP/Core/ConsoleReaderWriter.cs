@@ -1,7 +1,7 @@
 ﻿using System;
-using RD_University_ISP.Interfaces;
+using RD_University_OCP.Interfaces;
 
-namespace RD_University_ISP.Core
+namespace RD_University_OCP.Core
 {
   public class ConsoleReaderWriter : IInputReader, IOutputWriter
   {
@@ -13,11 +13,6 @@ namespace RD_University_ISP.Core
     public void Write(object objectToWrite)
     {
       Console.WriteLine(objectToWrite);
-    }
-
-    public void Process(object objectToProcess)
-    {
-      Write(objectToProcess);
     }
   }
 }

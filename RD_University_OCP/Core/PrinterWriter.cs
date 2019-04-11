@@ -1,7 +1,7 @@
 ﻿using System;
-using RD_University_ISP.Interfaces;
+using RD_University_OCP.Interfaces;
 
-namespace RD_University_ISP.Core
+namespace RD_University_OCP.Core
 {
   public class PrinterWriter : IOutputWriter
   {
