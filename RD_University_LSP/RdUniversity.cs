@@ -1,40 +1,25 @@
 ﻿using System;
-using System.Linq;
-using RD_University_LSP.Core.Promotion;
-using RD_University_LSP.Interfaces;
 using RD_University_LSP.Models;
 
 namespace RD_University_LSP
 {
-  public class RdUniversity : IRdUniversity
+  public class RdUniversity
   {
-    public RdUniversity(IDateProvider<Student> studentsDataProvider, IInputReader consoleReader, IOutputWriterFactory outputWriterFactory)
-    {
-      _studentsDataProvider = studentsDataProvider;
-      _consoleReader = consoleReader;
-      _outputWriterFactory = outputWriterFactory;
-    }
-
     public int Execute()
     {
-      var students = _studentsDataProvider.GetData();
-      var input = _consoleReader.Read();
-
-      if (input.Equals("x", StringComparison.InvariantCultureIgnoreCase))
+      Person booker = new Person(1)
       {
-        return 0;
-      }
-      var writer = _outputWriterFactory.GetWriter(input);
+        FirstName = "John",
+        LastName = "Doe",
+        BirthDate = new DateTime(1996, 3, 10)
+      };
+      
+      Room roomToBook = new RelaxRoom();
 
-      var promotionAssignator = new PromotionAssignator(new PromotionStrategyFactory());
-      var studentsForPromotion = promotionAssignator.SelectStudentsForPromotion(students);
+      roomToBook.BookTheRoom(booker);
 
-      studentsForPromotion.ToList().ForEach(writer.Write);
-      return 1;
+      return 0;
     }
 
-    private readonly IDateProvider<Student> _studentsDataProvider;
-    private readonly IInputReader _consoleReader;
-    private readonly IOutputWriterFactory _outputWriterFactory;
   }
 }
