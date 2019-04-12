@@ -31,6 +31,11 @@ namespace RD_University_OCP.Models
     {
     }
 
+    public StudentForPromotion(Student student) : this(student.Id)
+    {
+        
+    }
+
     public bool IsReady { get; set; }
   }
 }
