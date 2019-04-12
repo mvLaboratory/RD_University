@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using RD_University.Core;
+using RD_University.Data;
 using RD_University.Models;
 
 namespace RD_University
@@ -8,21 +11,18 @@ namespace RD_University
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("===RD University!===\n");
-      Console.WriteLine("What you want to do?");
+      var readerWriter = new ConsoleReaderWriter();
+      var printerWriter = new PrinterWriter();
 
-      var students = new List<Student>
-      {
-        new Student(1) {FirstName = "John", LastName = "Doe", BirthDate = new DateTime(1996, 3, 10)},
-        new Student(2) {FirstName = "Jane", LastName = "Doe", BirthDate = new DateTime(1993, 6, 23)},
-        new Student(3) {FirstName = "Alex", LastName = "Hart", BirthDate = new DateTime(1998, 12, 11)},
-        new Student(4) {FirstName = "Kate", LastName = "Smith", BirthDate = new DateTime(1996, 4, 5)}
-      };
+      readerWriter.WriteLine("===RD University!===\n");
+      readerWriter.WriteLine("What you want to do?");
 
+      var dataProvider = new StudentDataProvider();
+      var students = dataProvider.GetStudents();
 
-      var input = Console.ReadLine();
+      var input = readerWriter.Read();
       if (input?.Equals("p", StringComparison.CurrentCultureIgnoreCase) ?? false)
-        students.ForEach(Console.WriteLine);
+        students.ToList().ForEach(printerWriter.WriteLine);
 
       Console.ReadKey();
     }
