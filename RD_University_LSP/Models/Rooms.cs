@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using RD_University_LSP.Interfaces;
 
 namespace RD_University_LSP.Models
 {
@@ -9,32 +10,34 @@ namespace RD_University_LSP.Models
     public int Id { get; set; }
     public string Address { get; set; }
     public int Number { get; set; }
-
-    public virtual void BookTheRoom(Person booker)
-    {
-      throw new NotSupportedException("Could not book the unspecified room!");
-    }
   }
 
-  class RelaxRoom : Room
+  public abstract class BoockableRoom : Room, IBookable
   {
-    public override void BookTheRoom(Person booker)
+    public Person Booker { get; set; }
+    public DateTime BookDate { get; set; }
+    public abstract void BookTheRoom(BookablePerson booker);
+  }
+
+  class RelaxRoom : BoockableRoom
+  {
+    public override void BookTheRoom(BookablePerson booker)
     {
       Console.WriteLine($"The Relax room was booked by {booker.FirstName} {booker.LastName}");
     }
   }
 
-  class MeetingRoom : Room
+  class MeetingRoom : BoockableRoom
   {
-    public override void BookTheRoom(Person booker)
+    public override void BookTheRoom(BookablePerson booker)
     {
       Console.WriteLine($"The Meeting room was booked by {booker.FirstName} {booker.LastName}");
     }
   }
 
-  class ConferenceRoom : Room
+  class ConferenceRoom : BoockableRoom
   {
-    public override void BookTheRoom(Person booker)
+    public override void BookTheRoom(BookablePerson booker)
     {
       Console.WriteLine($"The Conference room was booked by {booker.FirstName} {booker.LastName}");
     }
@@ -42,9 +45,6 @@ namespace RD_University_LSP.Models
 
   class ReadingRoom : Room
   {
-    public override void BookTheRoom(Person booker)
-    {
-      Console.WriteLine($"The Reading room was booked by {booker.FirstName} {booker.LastName}");
-    }
+
   }
 }

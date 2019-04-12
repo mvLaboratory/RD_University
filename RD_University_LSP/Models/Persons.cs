@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using RD_University_LSP.Interfaces;
 
 namespace RD_University_LSP.Models
 {
@@ -16,7 +17,14 @@ namespace RD_University_LSP.Models
     public DateTime BirthDate { get; set; }
   }
 
-  public class Student : Person
+  public class BookablePerson : Person, ICanBook 
+  {
+    public BookablePerson(int id) : base(id)
+    {
+    }
+  }
+
+  public class Student : Person, ICanBook
   {
     public Student(int id) : base(id)
     {
@@ -32,7 +40,7 @@ namespace RD_University_LSP.Models
     }
   }
 
-  public class Teacher : Person
+  public class Teacher : Person, ICanBookHighOrderRooms
   {
     public Teacher(int id) : base(id)
     {

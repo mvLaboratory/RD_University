@@ -1,4 +1,5 @@
 ﻿using System;
+using RD_University_LSP.Interfaces;
 using RD_University_LSP.Models;
 
 namespace RD_University_LSP
@@ -14,8 +15,7 @@ namespace RD_University_LSP
         BirthDate = new DateTime(1996, 3, 10)
       };
       
-      Room roomToBook = new RelaxRoom();
-
+      IBookable roomToBook = new RelaxRoom();
       roomToBook.BookTheRoom(booker);
 
       return 0;
