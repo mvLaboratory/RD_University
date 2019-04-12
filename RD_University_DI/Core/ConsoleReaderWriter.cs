@@ -1,9 +1,10 @@
 ﻿using System;
+using RD_University.Interfaces;
 using RD_University_DI.Interfaces;
 
 namespace RD_University_DI.Core
 {
-  public class ConsoleReaderWriter : IReaderWriter
+  public class ConsoleReaderWriter : IReader, IWriter
   {
     public string Read()
     {

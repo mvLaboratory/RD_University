@@ -1,15 +1,11 @@
 ﻿using System;
+using RD_University.Interfaces;
 using RD_University_DI.Interfaces;
 
 namespace RD_University_DI.Core
 {
-  public class PrinterWriter : IReaderWriter
+  public class PrinterWriter : IWriter
   {
-    public string Read()
-    {
-      throw new NotSupportedException("It is impossible to read data from printer!");
-    }
-
     public void Write(object objectToWrite)
     {
       Console.WriteLine($"Bg-bg-bg Printer is printing => {objectToWrite} ");
