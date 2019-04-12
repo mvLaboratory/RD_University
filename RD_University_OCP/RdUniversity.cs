@@ -19,14 +19,14 @@ namespace RD_University_OCP
     {
       var students = _studentsDataProvider.GetData();
       var input = _consoleReader.Read();
-
+      
       if (input.Equals("x", StringComparison.InvariantCultureIgnoreCase))
       {
         return 0;
       }
       var writer = _outputWriterFactory.GetWriter(input);
 
-      var promotionAssignator = new PromotionAssignator(new PromotionStrategyFactory());
+      var promotionAssignator = new PromotionAssignator();
       var studentsForPromotion = promotionAssignator.SelectStudentsForPromotion(students);
 
       studentsForPromotion.ToList().ForEach(writer.Write);
