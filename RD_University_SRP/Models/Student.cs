@@ -2,9 +2,23 @@
 
 namespace RD_University_SRP.Models
 {
-  public class Student
+  public class Person
   {
-    public Student(int id)
+    public Person(int id) 
+    {
+    }
+  }
+
+  public class OldStudent : Student
+  {
+    public OldStudent(int id) : base(id)
+    {
+    }
+  }
+
+  public class Student : Person
+  {
+    public Student(int id) : base(id)
     {
       Id = id;
     }

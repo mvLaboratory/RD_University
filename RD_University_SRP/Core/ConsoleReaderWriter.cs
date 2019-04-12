@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using RD_University.Interfaces;
 
 namespace RD_University_SRP.Core
 {
-  public class ConsoleReaderWriter
+  public class ConsoleReaderWriter : IReaderWriter
   {
     public string Read()
     {

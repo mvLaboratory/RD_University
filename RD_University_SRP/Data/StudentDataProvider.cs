@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using RD_University.Interfaces;
 using RD_University_SRP.Models;
 
 namespace RD_University_SRP.Data
 {
-  public class StudentDataProvider
+
+  public class StudentDataProvider : IDataProvider<Student>
   {
-    public IEnumerable<Student> GetStudents()
+    public IEnumerable<Student> GetData()
     {
       yield return new Student(1) {FirstName = "John", LastName = "Doe", BirthDate = new DateTime(1996, 3, 10)};
       yield return new Student(2) {FirstName = "Jane", LastName = "Doe", BirthDate = new DateTime(1993, 6, 23)};
