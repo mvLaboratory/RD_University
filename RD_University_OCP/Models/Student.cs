@@ -10,6 +10,7 @@ namespace RD_University_OCP.Models
       Id = id;
     }
 
+
     public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -22,5 +23,14 @@ namespace RD_University_OCP.Models
     {
       return $"{Id}: {FirstName} {LastName}, {BirthDate:d}";
     }
+  }
+
+  public class StudentForPromotion : Student
+  {
+    public StudentForPromotion(int id) : base(id)
+    {
+    }
+
+    public bool IsReady { get; set; }
   }
 }
